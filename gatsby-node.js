@@ -1,7 +1,30 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require(`path`)
 
-// You can delete this file if you're not using it
+const createPages = async ({ actions, graphql }) => {
+  const { createPage } = actions
+  const result = await graphql(`
+    query MyQuery {
+      allStrapiCharacters {
+        edges {
+          node {
+            strapiId
+          }
+        }
+      }
+    }
+  `)
+  const characters = result.data.allStrapiCharacters.edges
+  characters.forEach(character => {
+    createPage({
+      path: character.node.strapiId,
+      component: path.resolve("./src/templates/character-page.js"),
+      context: {
+        strapiId: character.node.strapiId,
+      },
+    })
+  })
+}
+
+module.exports = {
+  createPages,
+}
