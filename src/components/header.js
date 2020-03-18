@@ -39,12 +39,6 @@ const Header = ({ siteTitle }) => {
           >
             Home
           </Link>
-          <Link
-            to="/about"
-            className="block mt-4 text-lg lg:inline-block lg:mt-0 text-green-700 hover:text-white mr-4"
-          >
-            About
-          </Link>
         </div>
       </div>
     </nav>
