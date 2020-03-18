@@ -7,12 +7,12 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
-    {
-      resolve: `gatsby-source-strapi`,
-      options: {
-        apiURL: ``,
-        contentTypes: [``],
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-strapi`,
+    //   options: {
+    //     apiURL: ``,
+    //     contentTypes: [``],
+    //   },
+    // },
   ],
 }
